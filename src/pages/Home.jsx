@@ -69,7 +69,7 @@ const Home = () => {
                             className="write-blog-btn"
                             onClick={handleWriteBlogClick}
                         >
-                            Write a Blog
+                            Write Blog
                         </button>
                     </div>
                     
