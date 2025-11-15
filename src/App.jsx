@@ -1,6 +1,5 @@
 import './App.css';
 import Header from './components/Header';
-import NewsLetterBanner from './components/NewsLetterBanner';
 import Home from './pages/Home';
 import './components/BlogCard.css';
 import Login from './pages/Login';
@@ -10,6 +9,7 @@ import CreateBlog from './pages/CreateBlog';
 import BlogPostPage from './pages/BlogPostPage';
 import EditBlog from './pages/EditBlog';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import NewsLetterBanner from './components/NewsLetterBanner';
 
 function App() {
   return (
@@ -27,7 +27,7 @@ function App() {
             <Route path="/signup" element={<Signup />} />
           </Routes>
         </main>
-        <NewsLetterBanner />
+      <NewsLetterBanner />
       </div>
     </Router>
   );
