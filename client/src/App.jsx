@@ -9,6 +9,7 @@ import CreateBlog from './pages/CreateBlog';
 import BlogPostPage from './pages/BlogPostPage';
 import EditBlog from './pages/EditBlog';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import NewsLetterBanner from './components/NewsLetterBanner';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
             <Route path="/signup" element={<Signup />} />
           </Routes>
         </main>
+        <NewsLetterBanner />
       </div>
     </Router>
   );
