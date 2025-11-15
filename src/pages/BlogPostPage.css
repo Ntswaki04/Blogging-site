@@ -1,0 +1,269 @@
+.blog-post-page {
+    padding: 4rem 0;
+    background: #f8f9fa;
+    min-height: 100vh;
+}
+
+.blog-post-loading {
+    min-height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.blog-post-error {
+    min-height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.error-content {
+    max-width: 500px;
+}
+
+.error-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #000;
+    margin-bottom: 1rem;
+}
+
+.error-message {
+    color: #666;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.back-btn {
+    display: inline-flex;
+    align-items: center;
+    background: #000;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+}
+
+.back-btn-label {
+    margin-left: 0.5rem;
+}
+
+.back-btn-arrow {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.back-btn:hover {
+    color: #000;
+    background: rgb(236, 236, 236);
+    font-weight: bold;
+}
+
+.blog-post {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.post-header {
+    padding: 3rem;
+    border-bottom: 1px solid #e1e8ed;
+}
+
+.post-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.meta-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.meta-icon {
+    width: 16px;
+    height: 16px;
+}
+
+.post-title {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: #000;
+    line-height: 1.2;
+    margin: 0;
+}
+
+.post-subtitle {
+    font-size: 1.25rem;
+    color: #666;
+    line-height: 1.6;
+    margin-top: 1rem;
+    margin-bottom: 0;
+}
+
+.post-image-container {
+    padding: 0 3rem;
+    margin: 2rem 0;
+}
+
+.post-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.post-content {
+    padding: 0 3rem 3rem;
+}
+
+.post-paragraph {
+    font-size: 1.125rem;
+    line-height: 1.75;
+    color: #333;
+    margin-bottom: 1.5rem;
+}
+
+.post-paragraph:last-child {
+    margin-bottom: 0;
+}
+
+.post-actions {
+    display: flex;
+    gap: 1rem;
+    margin: 2rem 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid #e5e7eb;
+}
+
+.btn-edit {
+    background: #000;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 0.9rem;
+}
+
+.btn-edit:hover {
+    color: #000;
+    background: rgb(236, 236, 236);
+    font-weight: bold;
+}
+
+.btn-delete {
+    background: #dc2626;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 0.9rem;
+}
+
+.btn-delete:hover {
+    background: rgb(236, 236, 236);
+    color: #dc2626;
+    font-weight: bold;
+}
+
+.comments-section {
+    padding: 3rem;
+    border-top: 1px solid #e1e8ed;
+    background: #f8f9fa;
+}
+
+.comments-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #000;
+    margin-bottom: 2rem;
+}
+
+.comments-loading {
+    text-align: center;
+    padding: 2rem;
+    color: #666;
+    background: #f8f9fa;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+.comments-loading p {
+    margin-top: 0.5rem;
+    margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+    .blog-post-page {
+        padding: 2rem 0;
+    }
+
+    .post-header {
+        padding: 2rem;
+    }
+
+    .post-title {
+        font-size: 1.875rem;
+    }
+
+    .post-meta {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .post-image-container,
+    .post-content,
+    .comments-section {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+
+    .post-actions {
+        margin: 2rem 2rem;
+        flex-direction: column;
+    }
+
+    .post-actions button {
+        width: 100%;
+    }
+}
+
+
+@media (max-width: 480px) {
+    .post-header {
+        padding: 1.5rem;
+    }
+
+    .post-title {
+        font-size: 1.5rem;
+    }
+
+    .post-image-container,
+    .post-content,
+    .comments-section {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+
+    .post-actions {
+        margin: 2rem 1.5rem;
+    }
+}

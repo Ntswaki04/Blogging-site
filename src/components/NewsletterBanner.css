@@ -1,0 +1,72 @@
+.newsletter-banner {
+    background: #000;
+    color: white;
+    padding: 3rem;
+    padding-bottom: 4rem;
+    margin-top: 2rem;
+}
+
+.newsletter-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 3rem;
+}
+
+.newsletter-content {
+    text-align: center;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.newsletter-content h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-top: 0.5rem;
+}
+
+.newsletter-content p {
+    color: #d1d5db;
+    margin-bottom: 2rem;
+}
+
+.newsletter-form {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.newsletter-input {
+    flex: 1;
+    max-width: 300px;
+    padding: 0.75rem 1rem;
+    border: 1px solid #2c3549;
+    border-radius: 8px;
+    background: #2c3549;
+    color: white;
+    font-size: 1rem;
+}
+
+.newsletter-input::placeholder {
+    color: #9ca3af;
+}
+
+.newsletter-input:focus {
+    outline: none;
+    border-color: #130fed;
+}
+
+.newsletter-btn {
+    background: white;
+    color: black;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.newsletter-btn:hover {
+    background: #f3f4f6;
+    text-decoration: underline;
+}
