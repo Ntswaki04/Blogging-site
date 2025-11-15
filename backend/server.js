@@ -13,7 +13,7 @@ app.use(express.json());
 app.use('/api/auth', authRoutes);
 app.use('/api/posts', postRoutes);
 
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/devblog';
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb+srv://ntsoaki2:nc900914@development1.yhuua5i.mongodb.net/devblog';
 
 console.log('Attempting MongoDB connection...');
 
@@ -26,9 +26,8 @@ mongoose.connect(MONGODB_URI, {
     })
     .catch((error) => {
         console.log('MongoDB connection failed:', error.message);
-        console.log('💡 But server will continue running...');
+        console.log('But server will continue running...');
     });
-
 app.get('/', (req, res) => {
     const dbStatus = mongoose.connection.readyState;
     let statusText = 'Unknown';
