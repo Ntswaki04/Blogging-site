@@ -4,6 +4,8 @@ const cors = require('cors');
 require('dotenv').config();
 const authRoutes = require('./routes/auth');
 const postRoutes = require('./routes/posts');
+const helmet = require('helmet');
+const rateLimit = require('express-rate-limit');
 
 const app = express();
 
@@ -12,15 +14,22 @@ app.use(express.json());
 
 app.use('/api/auth', authRoutes);
 app.use('/api/posts', postRoutes);
+app.use(helmet());
+app.use(rateLimit({
+    windowMs: 15 * 60 * 1000,
+    max: 100
+}));
 
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb+srv://ntsoaki2:nc900914@development1.yhuua5i.mongodb.net/devblog';
+const MONGODB_URI = process.env.MONGODB_URI;
+
+if (!MONGODB_URI) {
+    console.error('ERROR: MONGODB_URI environment variable is required');
+    process.exit(1);
+}
 
 console.log('Attempting MongoDB connection...');
 
-mongoose.connect(MONGODB_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-})
+mongoose.connect(process.env.MONGODB_URI)
     .then(() => {
         console.log('SUCCESS: Connected to MongoDB!');
     })
@@ -28,11 +37,20 @@ mongoose.connect(MONGODB_URI, {
         console.log('MongoDB connection failed:', error.message);
         console.log('But server will continue running...');
     });
+
+mongoose.connection.on('error', err => {
+    console.log('MongoDB connection error:', err);
+});
+
+mongoose.connection.on('disconnected', () => {
+    console.log('MongoDB disconnected');
+});
+
+
 app.get('/', (req, res) => {
     const dbStatus = mongoose.connection.readyState;
     let statusText = 'Unknown';
 
-    // Connection state codes
     if (dbStatus === 1) {
         statusText = 'Connected';
     } else if (dbStatus === 2) {
