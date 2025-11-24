@@ -4,8 +4,6 @@ const cors = require('cors');
 require('dotenv').config();
 const authRoutes = require('./routes/auth');
 const postRoutes = require('./routes/posts');
-// const helmet = require('helmet');
-// const rateLimit = require('express-rate-limit');
 
 const app = express();
 
@@ -17,15 +15,10 @@ app.use(cors({
     credentials: true
 }));
 
-app.use(cors({
-    origin: [
-        'http://localhost:5173',
-        'https://blogging-site-client.onrender.com'
-    ],
-    credentials: true
-}));
-
 app.use(express.json());
+
+app.use('/api/auth', authRoutes);
+app.use('/api/posts', postRoutes);
 
 const MONGODB_URI = process.env.MONGODB_URI;
 
@@ -36,7 +29,7 @@ if (!MONGODB_URI) {
 
 console.log('Attempting MongoDB connection...');
 
-mongoose.connect(process.env.MONGODB_URI)
+mongoose.connect(MONGODB_URI) 
     .then(() => {
         console.log('SUCCESS: Connected to MongoDB!');
     })
