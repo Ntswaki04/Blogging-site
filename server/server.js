@@ -4,24 +4,28 @@ const cors = require('cors');
 require('dotenv').config();
 const authRoutes = require('./routes/auth');
 const postRoutes = require('./routes/posts');
-const helmet = require('helmet');
-const rateLimit = require('express-rate-limit');
+// const helmet = require('helmet');
+// const rateLimit = require('express-rate-limit');
 
 const app = express();
 
 app.use(cors({
-    origin: 'http://localhost:5173',
+    origin: [
+        'http://localhost:5173',
+        'https://blogging-site-client.onrender.com'
+    ],
     credentials: true
 }));
-app.use(express.json());
 
-app.use('/api/auth', authRoutes);
-app.use('/api/posts', postRoutes);
-app.use(helmet());
-app.use(rateLimit({
-    windowMs: 15 * 60 * 1000,
-    max: 100
+app.use(cors({
+    origin: [
+        'http://localhost:5173',
+        'https://blogging-site-client.onrender.com'
+    ],
+    credentials: true
 }));
+
+app.use(express.json());
 
 const MONGODB_URI = process.env.MONGODB_URI;
 
