@@ -46,7 +46,7 @@ const Home = () => {
             <section className="hero-banner">
                 <div className="hero-overlay">
                     <div className="hero-content">
-                        <h1>Fueling the Future of Tech</h1>
+                        <h1>Feuling the Future of Tech</h1>
                     </div>
                 </div>
             </section>
